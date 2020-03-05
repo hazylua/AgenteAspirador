@@ -15,52 +15,44 @@ class AgenteAspirador(Ambiente):
     def __init__(self, posicaoAgente, Ambiente):
         # 0 indica a posição A, 1 indica posição B.
         self.posicaoAgente = posicaoAgente
+        # print(Ambiente.locais[list(Ambiente.locais.keys())[0]])
         
+
+        # Se tamanho/2 do ambiente é maior ou igual a posição do agente, percorre para trás.
         if(int(len(Ambiente.locais)/2) > self.posicaoAgente or self.posicaoAgente == len(Ambiente.locais)-1):
-            for i in range(self.posicaoAgente, -1, -1): # -1 = 0 na posicao
+            for i in range(self.posicaoAgente, -1, -1):  # -1 = 0 na posicao
+                item = list(Ambiente.locais.items())[i]
+                if(item[1] == 1):
+                    # print("Limpando...")
+                    Ambiente.locais[item[0]] = 0
                 self.posicaoAgente = i
                 self.Mapa(Ambiente)
+            for i in range(self.posicaoAgente, len(Ambiente.locais), 1):
+                item = list(Ambiente.locais.items())[i]
+                if(item[1] == 1):
+                    # print("Limpando...")
+                    Ambiente.locais[item[0]] = 0
+                self.posicaoAgente = i
+                self.Mapa(Ambiente)    
+        # Se tamanho/2 do ambiente é menor que a posição do agente, percorre para frente.
         elif(int(self.posicaoAgente != 7 or len(Ambiente.locais)/2) <= self.posicaoAgente or self.posicaoAgente == 0):
             for i in range(self.posicaoAgente, len(Ambiente.locais), 1):
+                item = list(Ambiente.locais.items())[i]
+                if(item[1] == 1):
+                    # print("Limpando...")
+                    Ambiente.locais[item[0]] = 0
                 self.posicaoAgente = i
                 self.Mapa(Ambiente)
-
-        # while(self.limpeza < 2):
-        #     if(self.posicaoAgente == 0):
-        #         print("\nAgente está em A.")
-        #         if(Ambiente.locais['A'] == 0):
-        #             print("A está limpo.")
-        #             self.posicaoAgente = 1
-        #             self.limpeza += 1
-        #         elif(Ambiente.locais['A'] == 1):
-        #             print("A está sujo.")
-        #             print("Limpando A...")
-        #             Ambiente.locais['A'] = 0
-        #             self.posicaoAgente = 1
-        #             self.limpeza += 1
-        #     elif(self.posicaoAgente == 1):
-        #         print("\nAgente está em B.")
-        #         if(Ambiente.locais['B'] == 0):
-        #             print("B está limpo.")
-        #             self.posicaoAgente = 0
-        #             self.limpeza += 1
-        #         elif(Ambiente.locais['B'] == 1):
-        #             print("B está sujo.")
-        #             print("Limpando B...")
-        #             Ambiente.locais['B'] = 0
-        #             self.posicaoAgente = 0
-        #             self.limpeza += 1
-        #     if(self.limpeza < 2):
-        #         if(self.posicaoAgente == 0):
-        #             print("Indo para A...")
-        #         else:
-        #             print("Indo para B...")
-        #     elif(self.limpeza == 2):
-        #         print("\nLimpeza concluída.")
+            for i in range(self.posicaoAgente, -1, -1):
+                item = list(Ambiente.locais.items())[i]
+                if(item[1] == 1):
+                    # print("Limpando...")
+                    Ambiente.locais[item[0]] = 0
+                self.posicaoAgente = i
+                self.Mapa(Ambiente)
 
     def Mapa(self, Ambiente):
         # '~' indica sujeira, '#' indica limpo.
-        print( self.posicaoAgente)
         for index, pos in enumerate(Ambiente.locais):
             if(self.posicaoAgente == index):
                 print('^ ', end='')
@@ -71,8 +63,7 @@ class AgenteAspirador(Ambiente):
         print()
 
 
-
-
 locais = {'A': '0', 'B': '0', 'C': '0', 'D': '0', 'E': '0', 'F': '0', 'G': '0'}
 ambiente = Ambiente(locais)
-aspirador = AgenteAspirador(random.randint(0, len(ambiente.locais) - 1), ambiente)
+aspirador = AgenteAspirador(random.randint(
+    0, len(ambiente.locais) - 1), ambiente)
