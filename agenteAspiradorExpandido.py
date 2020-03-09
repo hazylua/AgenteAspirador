@@ -25,39 +25,6 @@ class AgenteAspirador(Ambiente):
                 self.posicaoAgente = i
                 self.Mapa(Ambiente)
 
-        # while(self.limpeza < 2):
-        #     if(self.posicaoAgente == 0):
-        #         print("\nAgente está em A.")
-        #         if(Ambiente.locais['A'] == 0):
-        #             print("A está limpo.")
-        #             self.posicaoAgente = 1
-        #             self.limpeza += 1
-        #         elif(Ambiente.locais['A'] == 1):
-        #             print("A está sujo.")
-        #             print("Limpando A...")
-        #             Ambiente.locais['A'] = 0
-        #             self.posicaoAgente = 1
-        #             self.limpeza += 1
-        #     elif(self.posicaoAgente == 1):
-        #         print("\nAgente está em B.")
-        #         if(Ambiente.locais['B'] == 0):
-        #             print("B está limpo.")
-        #             self.posicaoAgente = 0
-        #             self.limpeza += 1
-        #         elif(Ambiente.locais['B'] == 1):
-        #             print("B está sujo.")
-        #             print("Limpando B...")
-        #             Ambiente.locais['B'] = 0
-        #             self.posicaoAgente = 0
-        #             self.limpeza += 1
-        #     if(self.limpeza < 2):
-        #         if(self.posicaoAgente == 0):
-        #             print("Indo para A...")
-        #         else:
-        #             print("Indo para B...")
-        #     elif(self.limpeza == 2):
-        #         print("\nLimpeza concluída.")
-
     def Mapa(self, Ambiente):
         # '~' indica sujeira, '#' indica limpo.
         print( self.posicaoAgente)
