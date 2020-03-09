@@ -1,4 +1,4 @@
-# Estados podem ser mapeados em um vetor por hash.
+# Os estados possíveis de um agente podem ser mapeados por hashing.
 Estados = {'0': {'a': '1', 'b': '0', 'c': '-1'},
            '1': {'a': '2', 'b': '0', 'c': '0'},
            '2': {'a': '0', 'b': '0', 'c': '1'}}
