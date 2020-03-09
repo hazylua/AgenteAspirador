@@ -16,7 +16,6 @@ class AgenteAspirador(Ambiente):
         # 0 indica a posição A, 1 indica posição B.
         self.posicaoAgente = posicaoAgente
         # print(Ambiente.locais[list(Ambiente.locais.keys())[0]])
-        
 
         # Se tamanho/2 do ambiente é maior ou igual a posição do agente, percorre para trás.
         if(int(len(Ambiente.locais)/2) > self.posicaoAgente or self.posicaoAgente == len(Ambiente.locais)-1):
@@ -33,7 +32,7 @@ class AgenteAspirador(Ambiente):
                     # print("Limpando...")
                     Ambiente.locais[item[0]] = 0
                 self.posicaoAgente = i
-                self.Mapa(Ambiente)    
+                self.Mapa(Ambiente)
         # Se tamanho/2 do ambiente é menor que a posição do agente, percorre para frente.
         elif(int(self.posicaoAgente != 7 or len(Ambiente.locais)/2) <= self.posicaoAgente or self.posicaoAgente == 0):
             for i in range(self.posicaoAgente, len(Ambiente.locais), 1):

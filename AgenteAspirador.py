@@ -19,11 +19,11 @@ class AgenteAspirador(Ambiente):
         print("Mapa do local: ")
         for pos in Ambiente.locais:
             if(Ambiente.locais[pos] == 0):
-                print('#', end = '')
+                print('#', end='')
             elif(Ambiente.locais[pos] == 1):
-                print('~', end = '')
+                print('~', end='')
         print()
-        
+
         # Existem 2 posições. O objetivo do agente é de deixar o ambiente completamente limpo e ter conhecimento disso.
         # Ele apenas deixa sua posição atual se ela estiver limpa.
         # Após limpar completamente o ambiente, seu trabalho termina.
